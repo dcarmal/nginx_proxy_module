@@ -1,0 +1,7 @@
+---
+nginx_proxy_module::proxy_redirect::redirect_origin:
+  - "https://domain.com"
+  - "https://domain.com/resource2"
+nginx_proxy_module::proxy_redirect::redirect_target:
+  - 10.10.10.10
+  - 20.20.20.20
