@@ -8,6 +8,7 @@
 #
 # @example
 #   include nginx_proxy_module::forward_proxy
+#
 class nginx_proxy_module::forward_proxy {
   include nginx
   nginx::resource::server { 'forward_proxy':

@@ -10,12 +10,16 @@
 #
 # @example
 #   include nginx_proxy_module::proxy_redirect
+#
 class nginx_proxy_module::proxy_redirect {
   include nginx
+
   $proxy_redirect = lookup('nginx_proxy_module::proxy_redirect::redirects')
+
   $proxy_redirect.each |$proxy_name, $proxy_data| {
     $origin = $proxy_data[0][0]
     $target = $proxy_data[0][1]
+
     nginx::resource::location { $proxy_name:
       location            => '/',
       server              => $proxy_name,
