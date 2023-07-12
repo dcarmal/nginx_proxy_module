@@ -5,19 +5,13 @@
 # @example
 #   include nginx_proxy_module::proxy_redirect
 class nginx_proxy_module::proxy_redirect {
-  # Look for origins and targets configured
-  $proxy_redirect = lookup('nginx_proxy_module::proxy_redirect::proxy_redirect')
-  # $proxy_target = lookup('nginx_proxy_module::proxy_redirect::redirect_target')
-  # $proxy_origin.each |String $url| {
-  #   notify { "Encontrada URL: ${url}":
-  #     message => "Encontrada URL: ${url}",
-  #   }
-  # }
-  $proxy_redirect.each |$adress| {
-    $origin = $adress[0]
-    $target = $adress[1]
-    notify { "Encontrado origen: ${origin} apuntando a destino ${target}":
-      message => "Encontrado origen: ${origin} apuntando a destino ${target}",
+  $proxy_redirect = lookup('nginx_proxy_module::proxy_redirect::redirects')
+
+  $proxy_redirect.each |$proxy_name, $proxy_data| {
+    $origin = $proxy_data[0][0]
+    $target = $proxy_data[0][1]
+    notify { "Servidor ${proxy_name} - Encontrado origen: ${origin} apuntando a destino ${target}":
+      message => "Servidor ${proxy_name} - Encontrado origen: ${origin} apuntando a destino ${target}",
     }
   }
 }
