@@ -50,13 +50,6 @@
       "operatingsystemrelease": [
         "29"
       ]
-    },
-    {
-      "operatingsystem": "windows",
-      "operatingsystemrelease": [
-        "2019",
-        "10"
-      ]
     }
   ],
   "requirements": [

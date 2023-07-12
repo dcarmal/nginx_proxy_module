@@ -2,6 +2,10 @@
 # See https://github.com/puppetlabs/puppetlabs_spec_helper#using-fixtures for details
 ---
 fixtures:
+#  symlinks:
+#    nginx: "#{source_dir}"
   forge_modules:
      stdlib: "puppetlabs/stdlib"
-#  hiera_config: hiera.yaml
+     nginx: "puppet-nginx"
+     yumrepo: "puppetlabs/yumrepo_core"
+     apt: "puppetlabs/apt"

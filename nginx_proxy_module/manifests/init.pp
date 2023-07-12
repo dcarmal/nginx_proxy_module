@@ -5,5 +5,6 @@
 # @example
 #   include nginx_proxy_module
 class nginx_proxy_module {
+  include nginx
   include nginx_proxy_module::proxy_redirect
 }
