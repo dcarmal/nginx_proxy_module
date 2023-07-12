@@ -11,17 +11,17 @@ class nginx_proxy_module::proxy_redirect {
     $origin = $proxy_data[0][0]
     $target = $proxy_data[0][1]
     nginx::resource::location { $proxy_name:
-      location              => '/',
-      server                => $proxy_name,
-      proxy_redirect        => $target,
-      location_cfg_append   => {
+      location            => '/',
+      server              => $proxy_name,
+      proxy_redirect      => $target,
+      location_cfg_append => {
         'proxy_pass' => $origin,
       },
-      proxy_read_timeout    => '60s',#                                    String   = $nginx::proxy_read_timeout,
-      proxy_connect_timeout => '10s',#                                    String   = $nginx::proxy_connect_timeout,
-      proxy_send_timeout    => '60s',#                                    String   = $nginx::proxy_send_timeout,
-      proxy_set_header      => ['Host $host', 'X-Real-IP $remote_addr'],# Array    = $nginx::proxy_set_header,
-      proxy_hide_header     => ['X-Powered-By'],#                         Array    = $nginx::proxy_hide_header,
+      # proxy_read_timeout    => '60s',#                                    String   = $nginx::proxy_read_timeout,
+      # proxy_connect_timeout => '10s',#                                    String   = $nginx::proxy_connect_timeout,
+      # proxy_send_timeout    => '60s',#                                    String   = $nginx::proxy_send_timeout,
+      # proxy_set_header      => ['Host $host', 'X-Real-IP $remote_addr'],# Array    = $nginx::proxy_set_header,
+      # proxy_hide_header     => ['X-Powered-By'],#                       Array    = $nginx::proxy_hide_header,
       # proxy_pass_header     #                                           Array    = $nginx::proxy_pass_header,
       # proxy_ignore_header   #                                           Array    = $nginx::proxy_ignore_header,
       # fastcgi_params        #                                           String   = "${nginx::conf_dir}/fastcgi.conf",
