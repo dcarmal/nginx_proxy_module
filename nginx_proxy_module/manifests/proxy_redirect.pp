@@ -1,7 +1,7 @@
 # @summary Class for NGINX redirects
 #
-# This class configures proxy redirections based on hiera data files looking for at least one of the
-# following blocks:
+# This class configures proxy redirections based on hiera data files.
+# "lookups" for at least one of the following configuration blocks:
 #
 # nginx_proxy_module::proxy_redirect::redirects:
 #   [proxy's name]:
