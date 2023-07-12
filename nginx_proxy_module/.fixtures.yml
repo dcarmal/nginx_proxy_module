@@ -10,3 +10,4 @@ fixtures:
      nginx: "puppet-nginx"
      yumrepo: "puppetlabs/yumrepo_core"
      apt: "puppetlabs/apt"
+     concat: "puppetlabs-concat"
