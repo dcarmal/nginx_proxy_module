@@ -19,6 +19,7 @@ describe 'nginx_proxy_module::forward_proxy' do
           'location_cfg_append' => {
             'proxy_pass' => 'http://$host$request_uri',
           },
+          # 'custom_config' => template('access_log.erb'),
         )
       }
     end

@@ -1,0 +1,2 @@
+log_format custom_log '[$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" $request_time "$scheme" "$remote_addr"';
+access_log <%= @access_log %> custom_log;
