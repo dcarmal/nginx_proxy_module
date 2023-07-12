@@ -11,10 +11,8 @@ describe 'nginx_proxy_module::proxy_redirect' do
       it { is_expected.to compile.with_all_deps }
 
       it 'expected to contain a notice with the expected text' do
-        is_expected.to contain_notify('Encontrada URL: https://domain.com')
-        is_expected.to contain_notify('Encontrada URL: https://domain.com/resource2')
-        is_expected.to contain_notify('Encontrado objetivo: 10.10.10.10')
-        is_expected.to contain_notify('Encontrado objetivo: 20.20.20.20')
+        is_expected.to contain_notify('Encontrado origen: https://domain.com apuntando a destino 10.10.10.10')
+        is_expected.to contain_notify('Encontrado origen: https://domain.com/resource2 apuntando a destino 20.20.20.20')
       end
     end
   end

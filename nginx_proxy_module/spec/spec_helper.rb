@@ -43,11 +43,6 @@ RSpec.configure do |c|
     # by default Puppet runs at warning level
     Puppet.settings[:strict] = :warning
     Puppet.settings[:strict_variables] = true
-    # Using facterdb to mock facts for a Windows system
-    FacterDB.get_facts('operatingsystem' => "windows\*").each do |fact|
-      fact[:config_path] = 'C:\\nginx'
-      add_custom_fact :config_path, fact[:config_path]
-    end
   end
   c.filter_run_excluding(bolt: true) unless ENV['GEM_BOLT']
   c.after(:suite) do
