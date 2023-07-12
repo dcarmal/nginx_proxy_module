@@ -3,12 +3,14 @@
 require 'spec_helper'
 
 describe 'nginx_proxy_module::proxy_redirect' do
+  # hiera = RSpec::Puppet::Hiera.new
+  let(:hiera_data) do
+    RSpec::Puppet::Support::Hiera.lookup('nginx_proxy_module::proxy_redirect::redirects')
+  end
+
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
       let(:facts) { os_facts }
-      let(:hiera_config) { 'spec/fixtures/hiera/hiera.yaml' }
-
-      hiera_data = Hiera.lookup('nginx_proxy_module::proxy_redirect::redirects')
 
       it { is_expected.to compile.with_all_deps }
 

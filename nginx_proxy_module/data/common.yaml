@@ -1,4 +1,10 @@
 ---
+:backends:
+  - yaml
+:yaml:
+  :datadir: spec/fixtures/hiera/data
+:hierarchy:
+  - common
 nginx_proxy_module::proxy_redirect::redirects:
   proxy1:
     - - "https://domain.com"
